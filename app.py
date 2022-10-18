@@ -5,6 +5,7 @@ import subprocess
 import os
 import base64
 import pickle
+from sklearn.linear_model import LinearRegression as lr
 
 # Molecular descriptor calculator
 def desc_calc():
@@ -24,9 +25,9 @@ def filedownload(df):
 # Model building
 def build_model(input_data):
     # Reads in saved regression model
-    load_model=pd.read_csv("descriptor_list.csv")
+    lr=pd.read_csv("descriptor_list.csv")
     # Apply model to make predictions
-    prediction = load_model.fit(input_data)
+    prediction = lr.fit(input_data)
     st.header('**Prediction output**')
     prediction_output = pd.Series(prediction, name='pIC50')
     molecule_name = pd.Series(load_data[1], name='molecule_name')
