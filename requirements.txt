@@ -1,6 +1,6 @@
 streamlit==0.71.0
 pandas==1.1.3
 base58==2.0.1
-subprocess
+subprocess32==3.5.4
 os
-pickle
+pickle5==0.0.12
