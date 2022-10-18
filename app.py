@@ -26,10 +26,9 @@ def filedownload(df):
 # Model building
 def build_model(input_data):
     # Reads in saved regression model
-    df = pd.read_csv(open('descriptor_list.csv', 'rb'))
+    df = pd.read_csv('descriptor_list.csv')
     df.head()
     st.table(df)
-    
 
 
 # Logo image
