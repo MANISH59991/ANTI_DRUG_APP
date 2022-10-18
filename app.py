@@ -24,7 +24,7 @@ def filedownload(df):
 # Model building
 def build_model(input_data):
     # Reads in saved regression model
-    load_model = csv.load(open('descriptor_list.csv', 'rb'))
+    load_model=pd.read_csv("descriptor_list.csv")
     # Apply model to make predictions
     prediction = load_model.predict(input_data)
     st.header('**Prediction output**')
