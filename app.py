@@ -23,9 +23,17 @@ def filedownload(df):
     return href
 
 # Model building
-df=pd.read_csv("descriptor_list.csv")
-df.head()
-st.table(df)
+def build_model(input_data):
+    # Reads in saved regression model
+    load_model = pickle.load(open('acetylcholinesterase_model.pkl', 'rb'))
+    # Apply model to make predictions
+    prediction = load_model.predict(input_data)
+    st.header('**Prediction output**')
+    prediction_output = pd.Series(prediction, name='pIC50')
+    molecule_name = pd.Series(load_data[1], name='molecule_name')
+    df = pd.concat([molecule_name, prediction_output], axis=1)
+    st.write(df)
+    st.markdown(filedownload(df), unsafe_allow_html=True)
 
 
 # Logo image
