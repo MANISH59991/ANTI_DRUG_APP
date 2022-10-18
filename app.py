@@ -24,14 +24,8 @@ def filedownload(df):
 
 # Model building
 df=pd.read_csv("descriptor_list.csv")
-X =np.array(df['PubchemFP3'])
-y = np.array(df['PubchemFP824'])
 df.head()
 st.table(df)
-lr = LinearRegression()
-fit=lr.fit(X, y)
-fit=lr.score(X, y)
-st.write('Linear regression accuracy score is:-',fit)
 
 
 # Logo image
