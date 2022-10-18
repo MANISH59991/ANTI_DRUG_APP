@@ -23,19 +23,16 @@ def filedownload(df):
     href = f'<a href="data:file/csv;base64,{b64}" download="prediction.csv">Download Predictions</a>'
     return href
 
-# Model building
-def build_model(input_data):
-    # Reads in saved regression model
-    df = pd.read_csv('descriptor_list.csv')
-    df.head()
-    st.table(df)
+df = pd.read_csv('descriptor_list.csv')
+df.head()
+st.table(df)
 X=np.array(df['PubchemFP696']
 Y=np.array(df['PubchemFP824']
 load_model=LinearRegression()
 lr=load_model.fit(X,Y)
-prediction = load_model.predict(input_data)
+prediction = load_model.predict(lr)
 st.header('**Prediction output**')
-prediction_output = pd.Series(prediction, name='pIC50')
+prediction_output = pd.Series(lr, name='pIC50')
 molecule_name = pd.Series(load_data[1], name='molecule_name')
 df = pd.concat([molecule_name, prediction_output], axis=1)
 st.write(df)
