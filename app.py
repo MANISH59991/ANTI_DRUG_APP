@@ -37,6 +37,7 @@ molecule_name = pd.Series(load_data[1], name='molecule_name')
 df = pd.concat([molecule_name, prediction_output], axis=1)
 st.write(df)
 st.markdown(filedownload(df), unsafe_allow_html=True)
+break()
     
 
 
