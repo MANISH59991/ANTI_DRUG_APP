@@ -27,9 +27,9 @@ df = pd.read_csv('descriptor_list.csv')
 df.head()
 st.table(df)
 X=np.array(df['PubchemFP696']
-Y=np.array(df['PubchemFP824']
+y=np.array(df['PubchemFP824']
 load_model=LinearRegression()
-lr=load_model.fit(X,Y)
+lr=load_model.fit(X,y)
 prediction = load_model.predict(lr)
 st.header('**Prediction output**')
 prediction_output = pd.Series(lr, name='pIC50')
