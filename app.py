@@ -26,16 +26,10 @@ def filedownload(df):
 # Model building
 def build_model(input_data):
     # Reads in saved regression model
-    load_model = pd.read_csv(open('descriptor_list.csv', 'rb'))
-    # Apply model to make predictions
-    load_model=LinearRegression()
-    prediction = load_model.predict(input_data)
-    st.header('**Prediction output**')
-    prediction_output = pd.Series(prediction, name='pIC50')
-    molecule_name = pd.Series(load_data[1], name='molecule_name')
-    df = pd.concat([molecule_name, prediction_output], axis=1)
-    st.write(df)
-    st.markdown(filedownload(df), unsafe_allow_html=True)
+    df = pd.read_csv(open('descriptor_list.csv', 'rb'))
+    df.head()
+    st.table(df)
+    
 
 
 # Logo image
