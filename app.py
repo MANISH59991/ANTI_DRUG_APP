@@ -29,7 +29,7 @@ def build_model(input_data):
     load_model = pd.read_csv(open('descriptor_list.csv', 'rb'))
     # Apply model to make predictions
     load_model=LinearRegression()
-    prediction = load_model.fit(input_data,load_model)
+    prediction = load_model.fit(input_data,input_data)
     st.header('**Prediction output**')
     prediction_output = pd.Series(prediction, name='pIC50')
     molecule_name = pd.Series(load_data[1], name='molecule_name')
